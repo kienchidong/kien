@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+<title> Hà Đức Kiên</title>
+
+<!-- Meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="keywords" content="Business Countdown Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta tags -->
+
+<!-- Style -->
+    <link rel="shortcut icon" href="images/logo-kien.png">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<!-- //Style -->
+
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<!-- Fonts -->
+<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Montserrat:400,700' type="text/css" media="all">
+
+<!-- Fonts -->
+</head>
+<!-- //Head -->
+
+
+
+<!-- Body -->
+<body>
+	<div class="banner-info">
+
+        <div class="w3l-info">
+            <img src="images/logo-kien.png" style="width: 5%" alt="">
+            <h3>Hà Đức Kiên</h3>
+            <h4>Web Deverloper</h4>
+        </div>
+
+        <div class="wrapper agileinfo">
+            <h1 style="font-size: 200%">Now is:</h1>
+            <div class="clock">
+                <div class="column ">
+                    <span class="timer w3layouts" id="now-hours">0</span>
+                    <div class="agileits text">HOURS</div>
+                </div>
+
+                <div class="column ">
+                    <span class="timer w3las" id="now-minutes">0</span>
+                    <div class="text aits">MINUTES</div>
+                </div>
+
+                <div class="column">
+                    <span class="timer stuoyal3w" id="now-seconds">0</span>
+                    <div class="text wthree">SECONDS</div>
+                </div>
+
+            </div>
+
+        </div>
+    <div class="wrapper agileinfo left">
+        <h1 style="font-size: 200%">My BirthDay on:</h1>
+        <div class="clock">
+            <div class="column ">
+                <span class="timer w3" id="birth-days">0</span>
+                <div class="aits text">DAYS</div>
+            </div>
+            <div class="column ">
+                <span class="timer w3layouts" id="birth-hours">0</span>
+                <div class="agileits text">HOURS</div>
+            </div>
+         
+            <div class="column ">
+                <span class="timer w3las" id="birth-minutes">0</span>
+                <div class="text aits">MINUTES</div>
+            </div>
+            
+            <div class="column">
+                <span class="timer stuoyal3w" id="birth-seconds">0</span>
+                <div class="text wthree">SECONDS</div>
+            </div>
+
+        </div>
+    </div>
+        <div class="wrapper agileinfo right">
+            <h1 style="font-size: 200%">Fell in love for:</h1>
+            <div class="clock">
+                <div class="column ">
+                    <span class="timer w3" id="love-days">0</span>
+                    <div class="aits text">DAYS</div>
+                </div>
+                <div class="column ">
+                    <span class="timer w3layouts" id="love-hours">0</span>
+                    <div class="agileits text">HOURS</div>
+                </div>
+
+                <div class="column ">
+                    <span class="timer w3las" id="love-minutes">0</span>
+                    <div class="text aits">MINUTES</div>
+                </div>
+
+                <div class="column">
+                    <span class="timer stuoyal3w" id="love-seconds">0</span>
+                    <div class="text wthree">SECONDS</div>
+                </div>
+
+            </div>
+
+    </div>
+
+    <div class="footer">
+        <br>
+
+        <hr>
+        <p> Địa chỉ: TDP số 1 - Thị trấn Chi Đông - Mê Linh - Hà Nội | Facebook: <a target="_blank" href="https://www.facebook.com/kienchidong">Hà Đức Kiên</a> </p>
+    </div>
+</div>
+    <!-- Custom-JavaScript-File-Links -->
+        <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+
+    <!-- //Custom-JavaScript-File-Links -->
+
+</body>
+<script language="javascript">
+    $(document).ready(function () {
+
+        start();
+        clock();
+        love();
+    });
+    var year, nextbirth;
+    var day=0;
+    var date= new Date();
+
+    var birth = new Date('5/12');
+    if(date.getMonth()>birth.getMonth()){
+        year = parseInt(date.getFullYear())+1;
+        nextbirth = new Date('5/12/'+year);
+        day=(parseInt(nextbirth.getTime())-parseInt(date.getTime()))/(86400000);
+    }
+    else{
+        year = date.getFullYear();
+        if(date.getMonth()===birth.getMonth()) {
+            nextbirth = new Date('5/12/'+year);
+            day=(parseInt(nextbirth.getTime())-parseInt(date.getTime()))/(86400000);
+        }
+        else {
+
+            nextbirth = new Date('9/16/' + year);
+            day = (parseInt(date.getTime()) - parseInt(nextbirth.getTime())) / (86400000);
+        }
+    }
+
+    var d = day.toFixed(0); // ngày
+    var h = 24-parseInt(date.getHours()); // Giờ
+    var m = 60-parseInt(date.getMinutes()); // Phút
+    var s = 60-parseInt(date.getSeconds()); // Giây
+
+    var timeout = null; // Timeout
+
+    function start() {
+        if (d === null) {
+            d = 0;
+            h = 0;
+            m = 0;
+            s = 0;
+        }
+
+        if (s === -1) {
+            m -= 1;
+            s = 59;
+        }
+        if (m === -1) {
+            h -= 1;
+            m = 59;
+        }
+
+        if (h === -1) {
+            d -= 1;
+            h = 23;
+        }
+        if (d === -1) {
+            clearTimeout(timeout);
+            alert('Chúc Mừng Sinh Nhật');
+            return false;
+        }
+
+        document.getElementById('birth-days').innerText = d.toString();
+        document.getElementById('birth-hours').innerText = h.toString();
+        document.getElementById('birth-minutes').innerText = m.toString();
+        document.getElementById('birth-seconds').innerText = s.toString();
+
+        timeout = setTimeout(function () {
+            s--;
+            start();
+        }, 1000);
+    };
+    timeout= null;
+    var now_h = parseInt(date.getHours()); // Giờ
+    var now_m = parseInt(date.getMinutes()); // Phút
+    var now_s = parseInt(date.getSeconds()); // Giây
+
+    function clock()
+    {
+        if (now_h === 23)
+        {
+            now_h = 0;
+            now_m = 0;
+            now_s = 0;
+        }
+
+        if (now_s === 59){
+            now_m += 1;
+            now_s = 0;
+        }
+        if (now_m === 59){
+            now_h += 1;
+            now_m = 0;
+        }
+
+        document.getElementById('now-hours').innerText = now_h.toString();
+        document.getElementById('now-minutes').innerText = now_m.toString();
+        document.getElementById('now-seconds').innerText = now_s.toString();
+
+        timeout = setTimeout(function(){
+            now_s++;
+            clock();
+        }, 1000);
+    }
+
+    timeout= null;
+    var love_date= new Date('6/5/2018');
+    var day_love=(parseInt(date.getTime()) - parseInt(love_date.getTime())) / (86400000)+1;
+    var love_d = day_love.toFixed(0); // Ngày
+    var love_h = parseInt(date.getHours()); // Giờ
+    var love_m = parseInt(date.getMinutes()); // Phút
+    var love_s = parseInt(date.getSeconds()); // Giây
+    function love() {
+
+        if (love_s === 59) {
+            love_m += 1;
+            love_s = 0;
+        }
+        if (love_m === 59) {
+            love_h += 1;
+            love_m = 0;
+        }
+
+        if (love_h === 23) {
+            love_d += 1;
+            love_h = 0;
+        }
+
+        document.getElementById('love-days').innerText = love_d.toString();
+        document.getElementById('love-hours').innerText = love_h.toString();
+        document.getElementById('love-minutes').innerText = love_m.toString();
+        document.getElementById('love-seconds').innerText = love_s.toString();
+
+        timeout = setTimeout(function () {
+            love_s++;
+            love();
+        }, 1000);
+    };
+
+</script>
+
+</html>
