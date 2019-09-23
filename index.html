@@ -23,6 +23,7 @@
 <!-- Fonts -->
 <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Montserrat:400,700' type="text/css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <!-- Fonts -->
 </head>
@@ -39,77 +40,82 @@
             <h3>Hà Đức Kiên</h3>
             <h4>Web Developer</h4>
         </div>
+        <div class="">
+            <div class="row">
+                <div class="wrapper agileinfo col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <h1 style="font-size: 200%">Now is:</h1>
+                <div class="clock">
+                    <div class="column ">
+                        <span class="timer w3layouts" id="now-hours">0</span>
+                        <div class="agileits text">HOURS</div>
+                    </div>
 
-        <div class="wrapper agileinfo">
-            <h1 style="font-size: 200%">Now is:</h1>
-            <div class="clock">
-                <div class="column ">
-                    <span class="timer w3layouts" id="now-hours">0</span>
-                    <div class="agileits text">HOURS</div>
-                </div>
+                    <div class="column ">
+                        <span class="timer w3las" id="now-minutes">0</span>
+                        <div class="text aits">MINUTES</div>
+                    </div>
 
-                <div class="column ">
-                    <span class="timer w3las" id="now-minutes">0</span>
-                    <div class="text aits">MINUTES</div>
-                </div>
+                    <div class="column">
+                        <span class="timer stuoyal3w" id="now-seconds">0</span>
+                        <div class="text wthree">SECONDS</div>
+                    </div>
 
-                <div class="column">
-                    <span class="timer stuoyal3w" id="now-seconds">0</span>
-                    <div class="text wthree">SECONDS</div>
                 </div>
 
             </div>
 
+                <div class="wrapper agileinfo left  col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <h1 style="font-size: 200%">My BirthDay on:</h1>
+                    <div class="clock">
+                        <div class="column ">
+                            <span class="timer w3" id="birth-days">0</span>
+                            <div class="aits text">DAYS</div>
+                        </div>
+                        <div class="column ">
+                            <span class="timer w3layouts" id="birth-hours">0</span>
+                            <div class="agileits text">HOURS</div>
+                        </div>
+
+                        <div class="column ">
+                            <span class="timer w3las" id="birth-minutes">0</span>
+                            <div class="text aits">MINUTES</div>
+                        </div>
+
+                        <div class="column">
+                            <span class="timer stuoyal3w" id="birth-seconds">0</span>
+                            <div class="text wthree">SECONDS</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="wrapper agileinfo right  col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <h1 style="font-size: 200%">Fell in love for:</h1>
+                    <div class="clock">
+                        <div class="column ">
+                            <span class="timer w3" id="love-days">0</span>
+                            <div class="aits text">DAYS</div>
+                        </div>
+                        <div class="column ">
+                            <span class="timer w3layouts" id="love-hours">0</span>
+                            <div class="agileits text">HOURS</div>
+                        </div>
+
+                        <div class="column ">
+                            <span class="timer w3las" id="love-minutes">0</span>
+                            <div class="text aits">MINUTES</div>
+                        </div>
+
+                        <div class="column">
+                            <span class="timer stuoyal3w" id="love-seconds">0</span>
+                            <div class="text wthree">SECONDS</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-    <div class="wrapper agileinfo left">
-        <h1 style="font-size: 200%">My BirthDay on:</h1>
-        <div class="clock">
-            <div class="column ">
-                <span class="timer w3" id="birth-days">0</span>
-                <div class="aits text">DAYS</div>
-            </div>
-            <div class="column ">
-                <span class="timer w3layouts" id="birth-hours">0</span>
-                <div class="agileits text">HOURS</div>
-            </div>
-         
-            <div class="column ">
-                <span class="timer w3las" id="birth-minutes">0</span>
-                <div class="text aits">MINUTES</div>
-            </div>
-            
-            <div class="column">
-                <span class="timer stuoyal3w" id="birth-seconds">0</span>
-                <div class="text wthree">SECONDS</div>
-            </div>
 
-        </div>
-    </div>
-        <div class="wrapper agileinfo right">
-            <h1 style="font-size: 200%">Fell in love for:</h1>
-            <div class="clock">
-                <div class="column ">
-                    <span class="timer w3" id="love-days">0</span>
-                    <div class="aits text">DAYS</div>
-                </div>
-                <div class="column ">
-                    <span class="timer w3layouts" id="love-hours">0</span>
-                    <div class="agileits text">HOURS</div>
-                </div>
-
-                <div class="column ">
-                    <span class="timer w3las" id="love-minutes">0</span>
-                    <div class="text aits">MINUTES</div>
-                </div>
-
-                <div class="column">
-                    <span class="timer stuoyal3w" id="love-seconds">0</span>
-                    <div class="text wthree">SECONDS</div>
-                </div>
-
-            </div>
-
-    </div>
 
     <div class="footer">
         <br>
@@ -124,6 +130,7 @@
     <!-- //Custom-JavaScript-File-Links -->
 
 </body>
+<script src="js/bootstrap.min.js"></script>
 <script language="javascript">
     $(document).ready(function () {
 
