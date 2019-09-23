@@ -38,6 +38,7 @@
 /*-- Index-Page-Styling --*/
 
 body {
+    width:104%;
     font-family: 'Montserrat', sans-serif;
     color: #fff !important;
     background: url("../images/background.JPG");
