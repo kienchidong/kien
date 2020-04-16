@@ -41,7 +41,9 @@ body {
     width:104%;
     font-family: 'Montserrat', sans-serif;
     color: #fff !important;
+    /*
     background: url("../images/background.JPG");
+    */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
