@@ -9,25 +9,106 @@
     <meta charset="UTF-8">
 
     <!-- Style -->
-    <link rel="shortcut icon" href="images/logo-kien.png">
+   <link rel="shortcut icon" href="images/logo-kien.png">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         body{
-            background-image: url("./images/bg2.jpg");
+            background-image: url("./images/background.JPG");
+            background-size: cover; 
         }
     </style>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <body>
-<div class="container">
-    <div id="app">
-        <div class="row">
-            <div class="col-6">sdfasđ</div>
-            <div class="col-6">sdfasđ</div>
+    <div class="banner-info">
+            <div class="w3l-info text-center">
+                <img src="images/logo-kien.png" style="width: 15%" alt="">
+                <h3>Hà Đức Kiên</h3>
+                <h4>Web Developer</h4>
+            </div>
+            <div id="app">
+                 <div class="">
+                <div class="row">
+                    <div class="wrapper agileinfo col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1 style="font-size: 200%">Now is:</h1>
+                        <div class="clock">
+                            <div class="column ">
+                                <span class="timer w3layouts" id="now-hours">{{ now.hour }}</span>
+                                <div class="agileits text">HOURS</div>
+                            </div>
+
+                            <div class="column ">
+                                <span class="timer w3las" id="now-minutes">{{ now.minute }}</span>
+                                <div class="text aits">MINUTES</div>
+                            </div>
+
+                            <div class="column">
+                                <span class="timer stuoyal3w" id="now-seconds">{{ now.second }}</span>
+                                <div class="text wthree">SECONDS</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                     <div class="wrapper agileinfo left  col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h1 style="font-size: 200%">My BirthDay on:</h1>
+                        <div class="clock">
+                            <div class="column ">
+                                <span class="timer w3" id="birth-days">{{ formatNumber(BirthDay) }}</span>
+                                <div class="aits text">DAYS</div>
+                            </div>
+                            <div class="column ">
+                                <span class="timer w3layouts">{{ formatNumber(Hour) }}</span>
+                                <div class="agileits text">HOURS</div>
+                            </div>
+
+                            <div class="column ">
+                                <span class="timer w3las">{{ formatNumber(Minute) }}</span>
+                                <div class="text aits">MINUTES</div>
+                            </div>
+
+                            <div class="column">
+                                <span class="timer stuoyal3w">{{ formatNumber(Second) }}</span>
+                                <div class="text wthree">SECONDS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="wrapper agileinfo right  col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <h1 style="font-size: 200%">Fell in love for:</h1>
+                        <div class="clock">
+                            <div class="column ">
+                                <span class="timer w3" id="love-days">0</span>
+                                <div class="aits text">DAYS</div>
+                            </div>
+                          <div class="column ">
+                                <span class="timer w3layouts">{{ formatNumber(Hour) }}</span>
+                                <div class="agileits text">HOURS</div>
+                            </div>
+                    
+                            <div class="column ">
+                                <span class="timer w3las">{{ formatNumber(Minute) }}</span>
+                                <div class="text aits">MINUTES</div>
+                            </div>
+                    
+                            <div class="column">
+                                <span class="timer stuoyal3w">{{ formatNumber(Second) }}</span>
+                                <div class="text wthree">SECONDS</div>
+                    
+                        </div>
+                    </div> -->
+                </div>
+                <div class="footer text-center">
+                    <br>
+
+                    <hr>
+                    <p> Địa chỉ: TDP số 1 - Thị trấn Chi Đông - Mê Linh - Hà Nội | Facebook: <a target="_blank"
+                                                                                                href="https://www.facebook.com/kienchidong">Hà
+                        Đức Kiên</a></p>
+                </div>
+            </div>
         </div>
-        <p>{{ now.hour }}:{{ now.minute }}:{{ now.second }}</p>
     </div>
-</div>
 <script>
     myObject = new Vue({
         el: '#app',
@@ -49,9 +130,9 @@
             this.countDown();
             this.timer = setInterval(() => {
                 this.date = new Date();
-                this.now.hour = this.date.getHours();
-                this.now.minute = this.date.getMinutes();
-                this.now.second = this.date.getSeconds();
+                this.now.hour = this.formatNumber(this.date.getHours());
+                this.now.minute = this.formatNumber(this.date.getMinutes());
+                this.now.second = this.formatNumber(this.date.getSeconds());
                 this.Second--;
             }, 1000)
         },
@@ -76,6 +157,12 @@
             }
         },
         methods:{
+            formatNumber(number){
+                if(number < 10){
+                    return '0'+number;
+                }
+                return number;
+            },
             mybirthDay(){
                 var nextbirth;
                 var day = 0;
