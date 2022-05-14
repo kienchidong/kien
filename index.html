@@ -9,182 +9,185 @@
     <meta charset="UTF-8">
 
     <!-- Style -->
-   <link rel="shortcut icon" href="images/logo-kien.png">
+    <link rel="shortcut icon" href="images/logo-kien.png">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-        body{
+        body {
             background-image: url("./images/background.JPG");
-            background-size: cover; 
+            background-size: cover;
         }
     </style>
+    <script src="js/vue/vue.min.js"></script>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <body>
-    <div class="banner-info">
-            <div class="w3l-info text-center">
-                <img src="images/logo-kien.png" style="width: 15%" alt="">
-                <h3>Hà Đức Kiên</h3>
-                <h4>Web Developer</h4>
+<div class="banner-info">
+    <div class="w3l-info text-center">
+        <img src="images/logo-kien.png" style="width: 15%" alt="">
+        <h3>Hà Đức Kiên</h3>
+        <h4>Web Developer</h4>
+    </div>
+    <div id="app">
+        <div class="">
+            <div class="row">
+                <div class="wrapper agileinfo col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h1 style="font-size: 200%">Now is:</h1>
+                    <div class="clock">
+                        <div class="column "
+                             v-if="now.hour != null"
+                        >
+                            <span class="timer w3layouts" id="now-hours">
+                                {{ now.hour }}
+                            </span>
+                            <div class="agileits text">HOURS</div>
+                        </div>
+
+                        <div class="column "
+                             v-if="now.minute != null"
+                        >
+                            <span class="timer w3las" id="now-minutes">
+                                {{ now.minute }}
+                            </span>
+                            <div class="text aits">MINUTES</div>
+                        </div>
+
+                        <div class="column"
+                             v-if="now.second != null"
+                        >
+                            <span class="timer stuoyal3w" id="now-seconds">
+                                {{ now.second }}
+                            </span>
+                            <div class="text wthree">SECONDS</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="wrapper agileinfo left  col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <h1 style="font-size: 200%">My BirthDay on:</h1>
+                    <div class="clock">
+                        <div class="column "
+                             v-if="countDownBirthDay.days != null"
+                        >
+                            <span class="timer w3" id="birth-days">
+                                {{ formatNumber(countDownBirthDay.days) }}
+                            </span>
+                            <div class="aits text">DAYS</div>
+                        </div>
+                        <div class="column "
+                             v-if="countDownBirthDay.hours != null"
+                        >
+                            <span class="timer w3layouts">
+                                {{ formatNumber(countDownBirthDay.hours) }}
+                            </span>
+                            <div class="agileits text">HOURS</div>
+                        </div>
+
+                        <div class="column "
+                             v-if="countDownBirthDay.minutes != null"
+                        >
+                            <span class="timer w3las">
+                                {{ formatNumber(countDownBirthDay.minutes) }}
+                            </span>
+                            <div class="text aits">MINUTES</div>
+                        </div>
+
+                        <div class="column"
+                             v-if="countDownBirthDay.seconds != null"
+                        >
+                            <span class="timer stuoyal3w">
+                                {{ formatNumber(countDownBirthDay.seconds) }}
+                            </span>
+                            <div class="text wthree">SECONDS</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="app">
-                 <div class="">
-                <div class="row">
-                    <div class="wrapper agileinfo col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <h1 style="font-size: 200%">Now is:</h1>
-                        <div class="clock">
-                            <div class="column ">
-                                <span class="timer w3layouts" id="now-hours">{{ now.hour }}</span>
-                                <div class="agileits text">HOURS</div>
-                            </div>
+            <div class="footer text-center">
+                <br>
 
-                            <div class="column ">
-                                <span class="timer w3las" id="now-minutes">{{ now.minute }}</span>
-                                <div class="text aits">MINUTES</div>
-                            </div>
-
-                            <div class="column">
-                                <span class="timer stuoyal3w" id="now-seconds">{{ now.second }}</span>
-                                <div class="text wthree">SECONDS</div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                     <div class="wrapper agileinfo left  col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <h1 style="font-size: 200%">My BirthDay on:</h1>
-                        <div class="clock">
-                            <div class="column ">
-                                <span class="timer w3" id="birth-days">{{ formatNumber(BirthDay) }}</span>
-                                <div class="aits text">DAYS</div>
-                            </div>
-                            <div class="column ">
-                                <span class="timer w3layouts">{{ formatNumber(Hour) }}</span>
-                                <div class="agileits text">HOURS</div>
-                            </div>
-
-                            <div class="column ">
-                                <span class="timer w3las">{{ formatNumber(Minute) }}</span>
-                                <div class="text aits">MINUTES</div>
-                            </div>
-
-                            <div class="column">
-                                <span class="timer stuoyal3w">{{ formatNumber(Second) }}</span>
-                                <div class="text wthree">SECONDS</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="wrapper agileinfo right  col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                        <h1 style="font-size: 200%">Fell in love for:</h1>
-                        <div class="clock">
-                            <div class="column ">
-                                <span class="timer w3" id="love-days">0</span>
-                                <div class="aits text">DAYS</div>
-                            </div>
-                          <div class="column ">
-                                <span class="timer w3layouts">{{ formatNumber(Hour) }}</span>
-                                <div class="agileits text">HOURS</div>
-                            </div>
-                    
-                            <div class="column ">
-                                <span class="timer w3las">{{ formatNumber(Minute) }}</span>
-                                <div class="text aits">MINUTES</div>
-                            </div>
-                    
-                            <div class="column">
-                                <span class="timer stuoyal3w">{{ formatNumber(Second) }}</span>
-                                <div class="text wthree">SECONDS</div>
-                    
-                        </div>
-                    </div> -->
-                </div>
-                <div class="footer text-center">
-                    <br>
-
-                    <hr>
-                    <p> Địa chỉ: TDP số 1 - Thị trấn Chi Đông - Mê Linh - Hà Nội | Facebook: <a target="_blank"
-                                                                                                href="https://www.facebook.com/kienchidong">Hà
-                        Đức Kiên</a></p>
-                </div>
+                <hr>
+                <p>
+                    Địa chỉ: TDP số 1 - Thị trấn Chi Đông - Mê Linh - Hà Nội | Facebook:
+                    <a target="_blank"
+                       :href="link" >
+                       Hạ Đức Kiên
+                    </a>
+                </p>
             </div>
         </div>
     </div>
+</div>
 <script>
     myObject = new Vue({
         el: '#app',
         data: {
-            date: new Date(),
-            timer: null,
+            currentDay: new Date(),
             now: {
                 hour: null,
                 minute: null,
                 second: null,
             },
-            BirthDay: null,
-            Hour: null,
-            Minute: null,
-            Second: null,
+            myBirthDay: '05/12/',
+            link: 'https://www.facebook.com/kienchidong',
+            countDownBirthDay: {
+                days: null,
+                hours: null,
+                minutes: null,
+                seconds: null,
+            }
         },
         mounted() {
             this.mybirthDay();
-            this.countDown();
             this.timer = setInterval(() => {
-                this.date = new Date();
-                this.now.hour = this.formatNumber(this.date.getHours());
-                this.now.minute = this.formatNumber(this.date.getMinutes());
-                this.now.second = this.formatNumber(this.date.getSeconds());
-                this.Second--;
+                let now = new Date()
+                this.now.hour = this.formatNumber(now.getHours());
+                this.now.minute = this.formatNumber(now.getMinutes());
+                this.now.second = this.formatNumber(now.getSeconds());
             }, 1000)
         },
-        watch:{
-            Second: function (val) {
-                if(val === 0){
-                    this.Minute--;
-                    this.Second = 59;
-                }
-            },
-            Minute: function (val) {
-                if(val === 0){
-                    this.Hour--;
-                    this.Minute = 59;
-                }
-            },
-            Hour: function (val) {
-                if(val === 0){
-                    this.BirthDay--;
-                    this.Hour = 23;
-                }
-            }
-        },
-        methods:{
-            formatNumber(number){
-                if(number < 10){
-                    return '0'+number;
+        methods: {
+            formatNumber(number) {
+                if (number < 10) {
+                    return '0' + number;
                 }
                 return number;
             },
-            mybirthDay(){
-                var nextbirth;
-                var day = 0;
-                var date = new Date();
-                nextbirth = new Date('5/12/'+ date.getFullYear());
-                day = (nextbirth.valueOf() - date.valueOf())/(86400000) +1;
-               if(day < 0){
-                    day += this.dayOfYear(date.getFullYear());
+            mybirthDay() {
+                let myBirhDayIntThisYear = new Date(this.myBirthDay + this.currentDay.getFullYear());
+                let year = '';
+                if (this.currentDay.getTime() < myBirhDayIntThisYear.getTime() && this.currentDay.toLocaleDateString() === myBirhDayIntThisYear.toLocaleDateString()) {
+                    year = this.currentDay.getFullYear();
+                } else {
+                    year = this.currentDay.getFullYear() + 1;
                 }
-                this.BirthDay = day.toFixed(0); // ngày
+                this.getCountDown(this.myBirthDay + year)
             },
-            dayOfYear(year){
-                if ((year % 4===0 &&year%100 !==0 && year % 400 !==0)||(year%100===0 && year % 400===0)){
-                    return 366;
-                } else{
-                    return 365;
+            getCountDown(dateValue = '') {
+                var countDownDate = new Date(dateValue);
+
+                if (!isNaN(countDownDate)) {
+                    setInterval(() => {
+
+                        // Get today's date and time
+                        var now = new Date().getTime();
+
+                        // Find the distance between now and the count down date
+                        var distance = countDownDate - now;
+
+                        // Time calculations for days, hours, minutes and seconds
+                        this.countDownBirthDay.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        this.countDownBirthDay.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        this.countDownBirthDay.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        this.countDownBirthDay.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (distance < 0) {
+                            clearInterval(x);
+                        }
+                    }, 1000);
+                } else {
+                    return []
                 }
-            },
-            countDown(){
-                this.Hour = 24 - parseInt(this.date.getHours()); // Giờ
-                this.Minute  = 60 - parseInt(this.date.getMinutes()); // Phút
-                this.Second = 60 - parseInt(this.date.getSeconds()); // Giây
             }
         }
     })
